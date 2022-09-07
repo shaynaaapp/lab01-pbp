@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h5>Nama: </h5>
+<b>{{nama}}</b>
+
+<table>
+    <tr>
+    <th>Nama Barang</th>
+    <th>Harga Barang</th>
+    <th>Deskripsi</th>
+    </tr>
+    {% comment %} Tambahkan data di bawah baris ini {% endcomment %}
+
+    {% for barang in list_barang %}
+        <tr>
+            <th>{{barang.nama_barang}}</th>
+            <th>{{barang.harga_barang}}</th>
+            <th>{{barang.deskripsi}}</th>
+        </tr>
+    {% endfor %}
+
+    <!-- <tr>
+    <th>Album Musik</th>
+    <th>300000</th>
+    <th>NCT</th>
+    </tr>
+
+    <tr>
+    <th>Buku Novel</th>
+    <th>80000</th>
+    <th>Seri Tere Liye</th>
+    </tr>
+
+    <tr>
+    <th>Disney Princess Ring</th>
+    <th>59000</th>
+    <th>On Shopee</th>
+    </tr> -->
+
+</table>
+
+{% endblock content %}
