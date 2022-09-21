@@ -20,24 +20,8 @@
         </tr>
     {% endfor %}
 
-    <!-- <tr>
-    <th>Album Musik</th>
-    <th>300000</th>
-    <th>NCT</th>
-    </tr>
-
-    <tr>
-    <th>Buku Novel</th>
-    <th>80000</th>
-    <th>Seri Tere Liye</th>
-    </tr>
-
-    <tr>
-    <th>Disney Princess Ring</th>
-    <th>59000</th>
-    <th>On Shopee</th>
-    </tr> -->
-
 </table>
 
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
 {% endblock content %}
