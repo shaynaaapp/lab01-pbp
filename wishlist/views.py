@@ -23,6 +23,25 @@ def show_wishlist(request):
     # return render(request, "wishlist.html")
     return render(request, "wishlist.html", context)
 
+def show_wishlist_ajax(request):
+    data_barang_wishlist = BarangWishlist.objects.all()
+    context = {
+        'list_barang': data_barang_wishlist,
+        'nama': 'Shayna Putri',
+        'last_login': request.COOKIES['last_login'],
+    }
+    # return render(request, "wishlist.html")
+    return render(request, "wishlist_ajax.html", context)
+
+def show_create_wishlist(request):
+    if request.method == 'POST':
+        nama_barang = request.POST.get('nama_barang')
+        harga_barang = request.POST.get('harga_barang')
+        deskripsi = request.POST.get('deskripsi')
+        wishlist = BarangWishlist.objects.create(nama_barang=nama_barang,deskripsi=deskripsi,harga_barang=harga_barang)
+        response = HttpResponseRedirect(reverse("wishlist:show_wishlist_ajax")) 
+        return response
+
 def show_xml(request):
     data = BarangWishlist.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
